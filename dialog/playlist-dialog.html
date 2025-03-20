@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Playlist</title>
+  <link rel="stylesheet" type="text/css" href="playlist-dialog.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Add Songs to Playlist</h2>
+    
+    <div class="choice-container">
+      <label>
+        <input type="radio" name="playlist-choice" value="new" checked>
+        Create new playlist
+      </label>
+      <div id="new-playlist-container">
+        <input type="text" id="new-playlist-name" placeholder="Enter playlist name">
+      </div>
+      
+      <label>
+        <input type="radio" name="playlist-choice" value="existing">
+        Add to existing playlist
+      </label>
+      <div id="existing-playlist-container" style="display: none;">
+        <select id="playlist-select">
+          <option value="">Loading playlists...</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button id="cancel-button">Cancel</button>
+      <button id="create-button">Create</button>
+    </div>
+  </div>
+  <script type="module" src="playlist-dialog.js"></script>
+</body>
+</html> 

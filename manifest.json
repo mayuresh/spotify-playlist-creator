@@ -1,0 +1,63 @@
+{
+  // Extension manifest version - using v3 (latest)
+  "manifest_version": 3,
+  
+  // Basic extension information
+  "name": "Spotify Playlist Creator",
+  "version": "1.0.0",
+  "description": "Create Spotify playlists from selected text on any webpage. Easily search and add songs with artist refinement.",
+  "author": "Your Name",
+  "homepage_url": "Your website or GitHub repo",
+  
+  // Required permissions for extension functionality
+  "permissions": [
+    "contextMenus",  // For right-click menu
+    "storage",       // For storing auth token and temporary data
+    "activeTab",     // For accessing current tab content
+    "identity"       // For Spotify OAuth flow
+  ],
+  
+  // API endpoints that the extension needs to access
+  "host_permissions": [
+    "https://api.spotify.com/*",    // Spotify API access
+    "https://accounts.spotify.com/*" // Spotify authentication
+  ],
+  
+  // Extension's browser action (icon in toolbar)
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  
+  // Background service worker with module support
+  "background": {
+    "service_worker": "background/background.js",
+    "type": "module"
+  },
+  
+  // Content scripts injected into web pages
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content/content.js"]
+  }],
+  
+  // Extension icons for various contexts
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  
+  // Resources that can be accessed by web pages
+  "web_accessible_resources": [{
+    "resources": [
+      "dialog/playlist-dialog.html",
+      "dialog/song-selection-dialog.html"
+    ],
+    "matches": ["<all_urls>"]
+  }]
+} 
