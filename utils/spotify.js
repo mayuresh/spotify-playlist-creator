@@ -3,9 +3,11 @@
  * Handles all interactions with the Spotify Web API
  */
 
+import browserAPI from './browser-polyfill.js';
+
 // Configuration constants
 const SPOTIFY_CLIENT_ID = 'your_client_id'; // Client ID from Spotify Developer Dashboard
-const REDIRECT_URI = chrome.identity.getRedirectURL(); // Chrome extension redirect URI
+const REDIRECT_URI = browserAPI.getRedirectURL(); // Chrome extension redirect URI
 const SPOTIFY_SCOPES = 'playlist-modify-public playlist-modify-private'; // Required Spotify permissions
 
 class SpotifyAPI {
@@ -14,7 +16,7 @@ class SpotifyAPI {
    * @returns {Promise<string>} The stored Spotify access token
    */
   static async getAuthToken() {
-    const token = await chrome.storage.local.get('spotify_token');
+    const token = await browserAPI.storage.local.get('spotify_token');
     return token.spotify_token;
   }
 
@@ -31,7 +33,7 @@ class SpotifyAPI {
     
     try {
       // Launch OAuth flow
-      const redirectUrl = await chrome.identity.launchWebAuthFlow({
+      const redirectUrl = await browserAPI.identity.launchWebAuthFlow({
         url: authUrl,
         interactive: true
       });
@@ -48,7 +50,7 @@ class SpotifyAPI {
       
       // Store token for future use
       console.log('Authentication successful');
-      await chrome.storage.local.set({ spotify_token: accessToken });
+      await browserAPI.storage.local.set({ spotify_token: accessToken });
       return accessToken;
     } catch (error) {
       console.error('Authentication error:', error);

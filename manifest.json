@@ -6,8 +6,8 @@
   "name": "Spotify Playlist Creator",
   "version": "1.0.0",
   "description": "Create Spotify playlists from selected text on any webpage. Easily search and add songs with artist refinement.",
-  "author": "Your Name",
-  "homepage_url": "Your website or GitHub repo",
+  "author": "Mayuresh Phadke",
+  "homepage_url": "https://github.com/mayuresh/spotify-playlist-creator",
   
   // Required permissions for extension functionality
   "permissions": [

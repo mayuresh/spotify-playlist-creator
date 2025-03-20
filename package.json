@@ -1,0 +1,10 @@
+{
+  "name": "spotify-playlist-creator",
+  "version": "1.0.0",
+  "description": "Create Spotify playlists from selected text on any webpage",
+  "author": {
+    "name": "Mayuresh Phadke",
+    "url": "https://github.com/mayuresh"
+  },
+  "license": "MIT"
+} 
