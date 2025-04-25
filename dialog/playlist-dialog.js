@@ -7,6 +7,8 @@ import SpotifyAPI from '../utils/spotify.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   // Get references to DOM elements
+  const songsContainer = document.getElementById('songs-container');
+  const addSelectedButton = document.getElementById('add-selected-button');
   const newPlaylistContainer = document.getElementById('new-playlist-container');
   const existingPlaylistContainer = document.getElementById('existing-playlist-container');
   const playlistSelect = document.getElementById('playlist-select');
@@ -115,7 +117,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   // Handle add selected songs button click
-  addSelectedButton.addEventListener('click', async () => {
+  addSelectedButton?.addEventListener('click', async () => {
     if (selectedSongs.size > 0) {
       const trackUris = Array.from(selectedSongs.values());
       
@@ -141,7 +143,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   // Handle cancel button click
-  cancelButton.addEventListener('click', () => {
+  cancelButton?.addEventListener('click', () => {
     window.close();
   });
 }); 
