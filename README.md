@@ -164,7 +164,50 @@ This extension was developed by Mayuresh Phadke with the assistance of Cursor AI
 
 ## Store Submission Guidelines
 
-### Chrome Web Store Submission
+### Packaging the Extension
+
+#### Automated Packaging
+1. Make sure you have bash and zip installed on your system
+
+2. Make the packaging scripts executable:
+   ```bash
+   chmod +x scripts/package-chrome.sh scripts/package-edge.sh
+   ```
+
+3. Run the appropriate packaging script:
+   For Chrome Web Store:
+   ```bash
+   ./scripts/package-chrome.sh
+   ```
+   For Microsoft Edge Add-ons:
+   ```bash
+   ./scripts/package-edge.sh
+   ```
+   This will:
+   - Create a temporary directory
+   - Copy all necessary files
+   - Create a zip file ready for submission
+   - Clean up temporary files
+
+4. The packaged extensions will be available as:
+   - `spotify-playlist-creator-chrome.zip` for Chrome Web Store
+   - `spotify-playlist-creator-edge.zip` for Microsoft Edge Add-ons
+
+#### Manual Packaging
+If you prefer to package manually:
+1. Create a new directory for packaging
+2. Copy these files and directories:
+   - assets/
+   - background/
+   - content/
+   - dialog/
+   - popup/
+   - utils/
+   - manifest.json
+   - privacy-policy.md
+3. Create a zip file containing these files
+
+### Submission Process
 1. **Prepare Store Listing**
    - Create a detailed description (up to 132 characters)
    - Prepare promotional tiles:

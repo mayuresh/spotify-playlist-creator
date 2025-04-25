@@ -4,6 +4,8 @@ node_modules/
 # Build files
 dist/
 build/
+*.zip
+temp_package*/
 
 # Environment variables
 .env
